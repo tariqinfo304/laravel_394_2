@@ -170,3 +170,40 @@ Route::fallback(function () {
 });
 
 */
+
+////////////////////////////////////////////////////////////
+///////////// Controller 
+///////////////////////////////////////////////////////////
+
+
+Route::get("test","SimpleController@simple");
+Route::get("param/{id}","SimpleController@param");
+
+//Controller in Folder//
+
+Route::get("folder","Admin\LoginController@call");
+
+//call every method with controller project
+
+//Magic __invoke method call //
+Route::get("m1","MagicController");
+Route::get("m2","MagicController@show");
+Route::get("m3/{id}","MagicController");
+
+//////////////////////////////////
+// Resource Controller  { make:controller name-of-controller --resource }
+
+Route::resource("crud","CRUDController");
+
+//Partial Resource Routes
+//Route::resource("crud","CRUDController")->only(['index','destroy']);
+//Route::resource("crud","CRUDController")->except(['destroy']);
+
+
+////////////////////////////////////
+/////////////// Request Obj Detail
+///////////////////////////////////
+
+Route::get("req/{id}","SimpleController@req");
+
+
