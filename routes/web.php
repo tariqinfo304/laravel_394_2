@@ -172,7 +172,7 @@ Route::fallback(function () {
 */
 
 ////////////////////////////////////////////////////////////
-///////////// Controller 
+///////////// Controller  
 ///////////////////////////////////////////////////////////
 
 
@@ -205,5 +205,21 @@ Route::resource("crud","CRUDController");
 ///////////////////////////////////
 
 Route::get("req/{id}","SimpleController@req");
+
+
+
+
+/////////////////////////////
+///////// Blade-Part-One ///
+///////////////////////////
+
+Route::get("blade","BladeController@simple");
+Route::get("parent","BladeController@parent");
+Route::get("child","BladeController@child");
+
+
+
+
+
 
 
