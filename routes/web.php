@@ -210,12 +210,22 @@ Route::get("req/{id}","SimpleController@req");
 
 
 /////////////////////////////
-///////// Blade-Part-One ///
+///////// Blade ///
 ///////////////////////////
 
 Route::get("blade","BladeController@simple");
 Route::get("parent","BladeController@parent");
 Route::get("child","BladeController@child");
+
+
+
+///////////////////////////////
+////////////// Query Builder //
+////////////////////////////////
+
+Route::get("db","DBController@db_index");
+
+
 
 
 
