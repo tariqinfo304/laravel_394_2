@@ -226,6 +226,12 @@ Route::get("child","BladeController@child");
 Route::get("db","DBController@db_index");
 
 
+/////////////////////////////////
+///////////////////// Eloquent ORM//
+///////////////////////////////////
+
+
+Route::get("orm","ORMController@orm");
 
 
 
