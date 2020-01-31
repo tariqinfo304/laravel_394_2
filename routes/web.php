@@ -234,6 +234,19 @@ Route::get("db","DBController@db_index");
 Route::get("orm","ORMController@orm");
 
 
+/////////////////////////////////
+///////////////////// Advance ORM//
+///////////////////////////////////
+
+
+Route::get("adv_orm","ORMAdvanceController@adv_orm");
+
+
+/////////////////////////////////
+///////////////////// Advance DB Query Builder//
+///////////////////////////////////
+
+Route::get("adv_db","DBAdvanceController@adv_db");
 
 
 
