@@ -248,6 +248,12 @@ Route::get("adv_orm","ORMAdvanceController@adv_orm");
 
 Route::get("adv_db","DBAdvanceController@adv_db");
 
+/////////////////////////
+///Advance ORM//
+//////////
+
+Route::get("orm","ORMAdvanceController@orm");
+
 
 
 
