@@ -19,6 +19,9 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+
+        //global middleware added in class
+        //\App\Http\Middleware\GlobalMiddleware::Class
     ];
 
     /**
@@ -27,6 +30,12 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middlewareGroups = [
+
+        //class added
+        "test_group" =>[
+            'test' => \App\Http\Middleware\TestMiddleware::Class,
+            'test2' => \App\Http\Middleware\Test2Middleware::Class
+        ],
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
@@ -61,6 +70,11 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        //class added
+        'test' => \App\Http\Middleware\TestMiddleware::Class,
+        //'test2' => \App\Http\Middleware\Test2Middleware::Class,
+
     ];
 
     /**
@@ -77,6 +91,6 @@ class Kernel extends HttpKernel
         \Illuminate\Routing\Middleware\ThrottleRequests::class,
         \Illuminate\Session\Middleware\AuthenticateSession::class,
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        \Illuminate\Auth\Middleware\Authorize::class,
+        \Illuminate\Auth\Middleware\Authorize::class
     ];
 }

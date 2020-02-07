@@ -252,9 +252,26 @@ Route::get("adv_db","DBAdvanceController@adv_db");
 ///Advance ORM//
 //////////
 
-Route::get("orm","ORMAdvanceController@orm");
+//Route::get("orm","ORMAdvanceController@orm");
+
+////////////////////////////////
+/// Middleware
+///////////////////////////////
+
+Route::get("orm","ORMAdvanceController@orm")->middleware("test");
+
+	//middleware //
+Route::group(["middleware" => ["test_group"]],function(){
+
+	Route::get("test2",function(){ echo "<br/>test2";});
+	Route::get("test1",function(){ echo "<br/>test1";});
+});
 
 
 
 
+///////////////////////////////////
+//////////// Integration of HTML template into Laravel Blade //
+//////////////
 
+Route::get("shop","ShopController@index");
