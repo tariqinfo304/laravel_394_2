@@ -36,19 +36,16 @@
 								<td>{{ $row->price }}</td>
 								<td>{{ $row->quantity }}</td>
 								<td>
-									<a href="{{ URL('product_edit',$row->id) }}" class="btn btn-info btn-lg">
-          								<span class="glyphicon glyphicon-edit"></span> Edit
+									<a href="{{ URL('add_product',$row->id) }}" class="btn btn-info btn-lg">
+          								<span class="fa fa-edit"></span> Edit
         							</a>
     							</td>
     							<td>
 									<a href="{{ URL('product_delete',$row->id) }}" class="btn btn-info btn-lg">
-          								<span class="glyphicon glyphicon-remove"></span> Delete
+          								<span class="fa fa-trash"></span> Delete
         							</a>
     							</td>
-
-
 							</tr>
-
 						@endforeach
 
 					</tbody>

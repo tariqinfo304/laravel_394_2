@@ -277,8 +277,6 @@ Route::group(["middleware" => ["test_group"]],function(){
 Route::get("shop","ShopController@index");
 
 Route::get("/product","ShopController@product");
-
-Route::get("/product_edit/{id}","ShopController@edit");
 Route::get("/product_delete/{id}","ShopController@delete");
-Route::get("add_product","ShopController@add_form");
+Route::get("add_product/{id?}","ShopController@add_form");
 Route::post("save_product","ShopController@save_product");
