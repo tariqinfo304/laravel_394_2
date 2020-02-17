@@ -23,8 +23,14 @@
 							<th>Product Name</th>
 							<th>Price</th>
 							<th>Quantity</th>
-							<th>Edit</th>
-							<th>Delete</th>
+							
+							@if(session("is_edit") == "1")
+								<th>Edit</th>
+							@endif
+							@if(session("is_delete") == "1")
+								<th>Delete</th>
+							@endif
+							
 						</tr>
 					</thead>
 					<tbody>
@@ -35,16 +41,23 @@
 								<td>{{ $row->name }}</td>
 								<td>{{ $row->price }}</td>
 								<td>{{ $row->quantity }}</td>
+
+
+								@if(session("is_edit") == "1")
 								<td>
 									<a href="{{ URL('add_product',$row->id) }}" class="btn btn-info btn-lg">
           								<span class="fa fa-edit"></span> Edit
         							</a>
     							</td>
-    							<td>
-									<a href="{{ URL('product_delete',$row->id) }}" class="btn btn-info btn-lg">
-          								<span class="fa fa-trash"></span> Delete
-        							</a>
-    							</td>
+    							@endif
+
+    							@if(session("is_delete") == "1")
+	    							<td>
+										<a href="{{ URL('product_delete',$row->id) }}" class="btn btn-info btn-lg">
+	          								<span class="fa fa-trash"></span> Delete
+	        							</a>
+	    							</td>
+	    						@endif
 							</tr>
 						@endforeach
 

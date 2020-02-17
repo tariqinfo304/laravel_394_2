@@ -268,15 +268,24 @@ Route::group(["middleware" => ["test_group"]],function(){
 });
 
 
-
-
 ///////////////////////////////////
 //////////// Integration of HTML template into Laravel Blade //
 //////////////
 
 Route::get("shop","ShopController@index");
 
-Route::get("/product","ShopController@product");
-Route::get("/product_delete/{id}","ShopController@delete");
-Route::get("add_product/{id?}","ShopController@add_form");
-Route::post("save_product","ShopController@save_product");
+Route::group(["middleware" => "session"],function(){
+
+	Route::get("/product","ShopController@product");
+	Route::get("/product_delete/{id}","ShopController@delete");
+	Route::get("add_product/{id?}","ShopController@add_form");
+	Route::post("save_product","ShopController@save_product");
+});
+
+///////////////////////////////
+////// Login /////////////////
+/////////////////////////////
+
+Route::get("login_form","LoginController@login_form");
+Route::post("login","LoginController@do_login");
+Route::get("logout","LoginController@logout");

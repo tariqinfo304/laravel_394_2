@@ -16,12 +16,24 @@ class ShopController extends Controller
 
     function product()
     {
+        /*
+        if(!session("username"))
+        {
+            return redirect("login_form");
+        }
+        */
     	$list = ProductModel::all();
     	return view("shop.product",["title" => "Product","list" => $list]);
     }
 
     function add_form($id=NULL)
     {
+        /*
+        if(!session("username"))
+        {
+            return redirect("login_form");
+        }
+        */
         $product = NULL;
         if(!empty($id))
             $product = ProductModel::find($id);
