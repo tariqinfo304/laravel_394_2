@@ -37,7 +37,7 @@
 						@foreach($list as $row)
 
 							<tr>
-								<td><img height="100px" src="{{ asset('img/'. $row->image) }}"/> </td>
+								<td><img width="150px" height="100px" src="{{ asset('storage/image/'. $row->image) }}"/> </td>
 								<td>{{ $row->name }}</td>
 								<td>{{ $row->price }}</td>
 								<td>{{ $row->quantity }}</td>

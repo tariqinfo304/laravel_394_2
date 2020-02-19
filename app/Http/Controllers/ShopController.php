@@ -28,6 +28,7 @@ class ShopController extends Controller
 
     function add_form($id=NULL)
     {
+
         /*
         if(!session("username"))
         {
@@ -44,13 +45,20 @@ class ShopController extends Controller
     function save_product(Request $req)
     {	
 
+
+
+        //it will use in caseof multilpe files
+        //dd($req->attach_file_name);
+
         
         //automatic way to validate request obj
     	$req->validate([
     		"name" => "required|min:5|max:20",
     		"price" => "required",
-    		"quantity" => "required|integer"
+    		"quantity" => "required|integer",
+            "attach_file_name" => "required|file"
     	]);
+        
         
 
 
@@ -93,7 +101,20 @@ class ShopController extends Controller
         $prod->price = $req->price;
         $prod->quantity = $req->quantity;
 
-        $prod->image = "product06.jpg";
+
+
+        //File Info//
+        //echo $req->attach_file_name->path();
+
+        $ext = $req->attach_file_name->extension();
+        $file_name = "file_".rand().".".$ext;
+
+        //random name store
+       // $req->attach_file_name->store("image");
+
+        $req->attach_file_name->storeAs("image",$file_name,"public");
+
+        $prod->image =  $file_name;
 
         if($prod->save())
         {

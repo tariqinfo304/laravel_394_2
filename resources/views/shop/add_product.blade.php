@@ -36,7 +36,7 @@
 
 					@endif
 
-					<form method="POST" id="product_form" action="{{ URL('save_product')}}">
+					<form method="POST" enctype="multipart/form-data" id="product_form" action="{{ URL('save_product')}}">
 						@csrf()
 
 						@if(isset($obj) && isset($obj->id))
@@ -84,6 +84,14 @@
 							@enderror
 						</div>
 
+						<div class="form-group">
+							<label>Upload Image</label>
+							<!--
+							<input class="input" type="file" multiple="" id="attach_file_name" name="attach_file_name[]" placeholder="Plz Attach File"/>
+						-->
+							<input class="input" type="file" id="attach_file_name" name="attach_file_name" placeholder="Plz Attach File"/>
+						</div>
+
 						<div style="text-align: center;"  class="form-group">
 							<input class="btn-primary" type="submit" value="Save"/>
 						</div>
@@ -96,7 +104,7 @@
 	</div>
 
 	<script>
-			
+			/*
 		$("#product_form").submit(function(e){
 			e.preventDefault();
 
@@ -123,6 +131,7 @@
 			});
 
 		});
+		*/
 
 	</script>
 	
