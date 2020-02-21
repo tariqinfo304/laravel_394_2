@@ -289,3 +289,8 @@ Route::group(["middleware" => "session"],function(){
 Route::get("login_form","LoginController@login_form");
 Route::post("login","LoginController@do_login");
 Route::get("logout","LoginController@logout");
+
+
+Route::get("book_list","BookController@list");
+Route::get("add_book","BookController@book_form");
+Route::post("save_book","BookController@save");

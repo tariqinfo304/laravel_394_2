@@ -413,6 +413,8 @@
 							<li><a href="{{ URL('add_product') }}">Add Product</a></li>
 						@endif
 
+						<li><a href="{{ URL('book_list') }}">Book Store</a></li>
+						<li><a href="{{ URL('add_book') }}">Add Book Store</a></li>
 						<li class="dropdown mega-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Women <i class="fa fa-caret-down"></i></a>
 							<div class="custom-menu">
 								<div class="row">
