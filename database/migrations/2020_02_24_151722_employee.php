@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCustomerModelsTable extends Migration
+class Employee extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class CreateCustomerModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('customer_models', function (Blueprint $table) {
+        Schema::create('employee', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("name")->nullable();
+            $table->integer("quantity");
+            $table->text("description")->nullable();
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            
             $table->timestamps();
         });
     }
@@ -27,6 +33,6 @@ class CreateCustomerModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customer_models');
+        Schema::dropIfExists('employee_old_12');
     }
 }
